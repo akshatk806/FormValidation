@@ -10,8 +10,10 @@ let validEmail=false;
 let validPhone=false;
 
 // Initially hiding the success and failure div's
-$('#failure').hide();
-$('#success').hide();
+// $('#failure').hide();
+// $('#success').hide();
+document.getElementById('success').style.display='none';   // alternative to jquery
+document.getElementById('failure').style.display='none';
 
 // console.log(username,email,phone);
 username.addEventListener('blur',()=>{
@@ -79,17 +81,19 @@ submit.addEventListener('click',(event)=>{
         let success=document.getElementById('success');
         success.classList.add('show');   // show is a bootstrap class
         // failure.classList.remove('show');
-        $('#success').show();
-        $('#failure').hide();
+//         $('#success').show();
+//         $('#failure').hide();
+        success.style.display='block';   // alternative to jquery
+        failure.style.display='none';
     }
     else{
         console.log("One of Phone,Email and User all are not valid. Please correct the error and try again");
         let failure=document.getElementById('failure');
         failure.classList.add('show');   // show is a bootstrap class
         // success.classList.remove('show');
-        $('#success').hide();
-        $('#failure').show();
+//         $('#success').hide();
+//         $('#failure').show();
+        success.style.display='none';
+        failure.style.display='block';
     }
-
-    
 })
